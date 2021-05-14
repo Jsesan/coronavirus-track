@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Coronavirus Tracker Application </title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+
+<body>
+<h1>Coronavirus Tracker Application<a><img src="https://img.icons8.com/cute-clipart/50/000000/coronavirus.png"/></a></h1>
+<div class="jumbotron">
+    <h2 th:text="${total}">0</h2>
+    <h4>Total cases reported as today</h4>
+</div>
+<table class="table table-success table-striped">
+    <tr>
+        <th>#</th>
+        <th>Country</th>
+        <th>Total Cases</th>
+    </tr>
+    <tr th:each="locationStat,iteractor : ${locationStats}">
+        <td th:text="${iteractor.count}"></td>
+        <td th:text="${locationStat.country}"></td>
+        <td th:text="${locationStat.latestTotalCases}">0</td>
+    </tr>
+</table>
+
+</body>
+
+</html>
